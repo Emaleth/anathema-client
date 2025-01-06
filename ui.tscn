@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1y2g435qlcrh"]
+
+[ext_resource type="PackedScene" uid="uid://dmajhod44o6ud" path="res://chat.tscn" id="1_tr4ji"]
+[ext_resource type="Texture2D" uid="uid://bmph75r8erwy6" path="res://kenney_crosshair-pack/PNG/White Retina/crosshair187.png" id="2_5n0s5"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Chat" parent="." instance=ExtResource("1_tr4ji")]
+layout_mode = 1
+offset_top = -100.0
+offset_right = 300.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_5n0s5")
+expand_mode = 1

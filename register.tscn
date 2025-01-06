@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj418vuagpx7b"]
+
+[ext_resource type="Script" path="res://register.gd" id="1_qkvd5"]
+
+[node name="Register" type="PanelContainer"]
+script = ExtResource("1_qkvd5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="EmailLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Email:"
+horizontal_alignment = 1
+
+[node name="EmailLineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PasswordLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Password:"
+horizontal_alignment = 1
+
+[node name="PasswordLineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RegisterButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Register"
+
+[node name="LoginButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Login"

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://nitd7m7kl5vj"]
+
+[ext_resource type="Script" path="res://login_register.gd" id="1_uvya8"]
+
+[node name="LoginRegister" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uvya8")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2

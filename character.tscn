@@ -1,0 +1,70 @@
+[gd_scene load_steps=14 format=3 uid="uid://cltrig1jfofgf"]
+
+[ext_resource type="Script" path="res://character.gd" id="1_7qqv4"]
+[ext_resource type="Texture2D" uid="uid://e8pahj1goep" path="res://addons/kenney_prototype_textures/green/texture_07.png" id="2_njtl5"]
+[ext_resource type="Texture2D" uid="uid://bmt3wtffnp3kh" path="res://addons/kenney_prototype_textures/red/texture_03.png" id="3_q7cb2"]
+[ext_resource type="PackedScene" uid="uid://i2my8i82bqhp" path="res://name_plate.tscn" id="4_y1myi"]
+[ext_resource type="Texture2D" uid="uid://d30w7am4tjrct" path="res://kenney_crosshair-pack/PNG/White Retina/crosshair186.png" id="5_8e22d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_88dg5"]
+albedo_texture = ExtResource("2_njtl5")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rukaf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8uyo2"]
+albedo_texture = ExtResource("3_q7cb2")
+
+[sub_resource type="BoxMesh" id="BoxMesh_6opj2"]
+size = Vector3(0.5, 0.1, 0.6)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w51ub"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_17y5q"]
+radius = 0.1
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_f2mmb"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ih8n"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_f2mmb")
+billboard_mode = 1
+
+[node name="Character" type="CharacterBody3D"]
+script = ExtResource("1_7qqv4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_88dg5")
+mesh = SubResource("CapsuleMesh_rukaf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.3)
+material_override = SubResource("StandardMaterial3D_8uyo2")
+mesh = SubResource("BoxMesh_6opj2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_w51ub")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("SphereShape3D_17y5q")
+spring_length = 10.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+v_offset = 3.0
+
+[node name="NamePlate" parent="." instance=ExtResource("4_y1myi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+material_override = SubResource("StandardMaterial3D_5ih8n")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 0.583333, 0, 1)
+custom_minimum_size = Vector2(32, 32)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_8e22d")
+expand_mode = 1
