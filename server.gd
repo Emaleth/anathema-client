@@ -6,7 +6,8 @@ var port := 1989
 
 
 func _ready() -> void:
-	ConnectToServer()
+	pass
+	#ConnectToServer()
 
 
 func ConnectToServer():
@@ -34,5 +35,5 @@ func client_to_server_new_chat_message(text):
 
 signal new_msg
 @rpc("reliable")
-func server_to_client_broadcast_new_chat_message(text):
-	new_msg.emit("s", "t", text)
+func server_to_client_broadcast_new_chat_message(sender, timestamp, text):
+	new_msg.emit(sender, timestamp, text)
