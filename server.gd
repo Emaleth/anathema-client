@@ -5,11 +5,6 @@ var ip := "127.0.0.1"
 var port := 1989
 
 
-func _ready() -> void:
-	pass
-	#ConnectToServer()
-
-
 func ConnectToServer():
 	network.create_client(ip, port)
 	multiplayer.multiplayer_peer = network

@@ -1,28 +1,72 @@
-[gd_scene load_steps=2 format=3 uid="uid://cj418vuagpx7b"]
+[gd_scene load_steps=3 format=3 uid="uid://cj418vuagpx7b"]
 
 [ext_resource type="Script" path="res://register.gd" id="1_qkvd5"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tugyn"]
+
 [node name="Register" type="PanelContainer"]
+custom_minimum_size = Vector2(200, 300)
 script = ExtResource("1_qkvd5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tugyn")
+
 [node name="EmailLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 1
 text = "Email:"
 horizontal_alignment = 1
 
 [node name="EmailLineEdit" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
 
+[node name="HSeparator6" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tugyn")
+
+[node name="UsernameLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Username:"
+horizontal_alignment = 1
+
+[node name="UsernameLineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tugyn")
+
 [node name="PasswordLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 1
 text = "Password:"
 horizontal_alignment = 1
 
 [node name="PasswordLineEdit" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tugyn")
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tugyn")
+
+[node name="HSeparator5" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tugyn")
 
 [node name="RegisterButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
