@@ -47,12 +47,14 @@ func client_to_gateway_login():
 	username = ""
 	password = ""
 
+signal con_f
 @rpc("reliable")
 func gateway_to_client_login_result(result):
 	print(result)
 	if result == true:
 		Server.ConnectToServer()
 	else:
+		con_f.emit()
 		gateway_api.connection_failed.disconnect(_OnConnectionFailed)
 		gateway_api.connected_to_server.disconnect(_OnConnectionSucceeded)
 		gateway_api.server_disconnected.disconnect(_OnDisconnection)

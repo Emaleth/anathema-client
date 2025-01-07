@@ -2,10 +2,12 @@ extends PanelContainer
 
 
 @onready var register_button := $VBoxContainer/RegisterButton
+@onready var login_button := $VBoxContainer/LoginButton
 
 func _ready() -> void:
-	$VBoxContainer/LoginButton.pressed.connect(login)
+	login_button.pressed.connect(login)
+	Gateway.con_f.connect(func(): login_button.disabled = false)
 
 func login():
-	#$VBoxContainer/LoginButton.disabled = true
+	login_button.disabled = true
 	Gateway.ConnectToServer($VBoxContainer/EmailLineEdit.text, $VBoxContainer/PasswordLineEdit.text)
