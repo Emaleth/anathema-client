@@ -18,6 +18,7 @@ func _OnConnectionFailed():
 
 
 func _OnConnectionSucceeded():
+	get_tree().root.get_node("/root/Anathema").add_child(preload("res://world.tscn").instantiate())
 	print("Succesfully connected")
 
 
