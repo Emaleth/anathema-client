@@ -8,7 +8,7 @@ const JUMP_VELOCITY = 10
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	$NamePlate.set_actor_name("Emaleth")
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

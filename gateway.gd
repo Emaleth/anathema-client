@@ -49,9 +49,11 @@ func client_to_gateway_login():
 
 signal con_f
 @rpc("reliable")
-func gateway_to_client_login_result(result):
+func gateway_to_client_login_result(result, token):
 	print(result)
+	print(token)
 	if result == true:
+		Server.token = token
 		Server.ConnectToServer()
 	else:
 		con_f.emit()
