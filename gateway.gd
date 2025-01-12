@@ -4,6 +4,7 @@ var network := ENetMultiplayerPeer.new()
 var ip := "127.0.0.1"
 var port := 1910
 var gateway_api := MultiplayerAPI.create_default_interface()
+var cert = load("res://X509_Certificate.crt")
 
 var username
 var password
@@ -22,6 +23,7 @@ func ConnectToServer(_username, _password):
 	username = _username
 	password = _password
 	network.create_client(ip, port)
+	network.host.dtls_client_setup("hostname", TLSOptions.client_unsafe(cert))
 	get_tree().set_multiplayer(gateway_api, self.get_path())
 	gateway_api.multiplayer_peer = network
 
