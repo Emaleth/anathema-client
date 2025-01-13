@@ -31,13 +31,13 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxEmpty_tugyn")
 
-[node name="UsernameLabel" type="Label" parent="VBoxContainer"]
+[node name="PasswordLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
-text = "Username:"
+text = "Password:"
 horizontal_alignment = 1
 
-[node name="UsernameLineEdit" type="LineEdit" parent="VBoxContainer"]
+[node name="PasswordLineEdit" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
@@ -46,13 +46,13 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxEmpty_tugyn")
 
-[node name="PasswordLabel" type="Label" parent="VBoxContainer"]
+[node name="RepeatPasswordLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
-text = "Password:"
+text = "Repeat Password:"
 horizontal_alignment = 1
 
-[node name="PasswordLineEdit" type="LineEdit" parent="VBoxContainer"]
+[node name="RepeatPasswordLineEdit" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
 alignment = 1
 

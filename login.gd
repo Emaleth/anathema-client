@@ -10,4 +10,4 @@ func _ready() -> void:
 
 func login():
 	login_button.disabled = true
-	Gateway.ConnectToServer($VBoxContainer/EmailLineEdit.text, $VBoxContainer/PasswordLineEdit.text)
+	Gateway.ConnectToServer($VBoxContainer/EmailLineEdit.text, $VBoxContainer/PasswordLineEdit.text, false)
