@@ -7,7 +7,9 @@ extends PanelContainer
 func _ready() -> void:
 	login_button.pressed.connect(login)
 	Gateway.con_f.connect(func(): login_button.disabled = false)
+	Gateway.con_f.connect(func(): register_button.disabled = false)
 
 func login():
 	login_button.disabled = true
+	register_button.disabled = true
 	Gateway.ConnectToServer($VBoxContainer/EmailLineEdit.text, $VBoxContainer/PasswordLineEdit.text, false)
