@@ -25,6 +25,7 @@ horizontal_alignment = 1
 [node name="EmailLineEdit" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
 alignment = 1
+clear_button_enabled = true
 
 [node name="HSeparator6" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
@@ -40,6 +41,7 @@ horizontal_alignment = 1
 [node name="PasswordLineEdit" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
 alignment = 1
+clear_button_enabled = true
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
@@ -55,6 +57,7 @@ horizontal_alignment = 1
 [node name="RepeatPasswordLineEdit" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
 alignment = 1
+clear_button_enabled = true
 
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2

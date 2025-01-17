@@ -1,6 +1,6 @@
 extends Node
 
-
+var ui = false
 var login_scene := preload("res://login_register.tscn")
 var world_scene := preload("res://world.tscn")
 var current_scene = 0

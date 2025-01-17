@@ -15,6 +15,7 @@ func add_new_message(sender, timestamp, msg):
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("chat_toggle"):
+		get_node("/root/Anathema").ui = true
 		line_edit.grab_focus()
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
@@ -22,3 +23,4 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 		Server.client_to_server_new_chat_message(new_text)
 		line_edit.clear()
 		line_edit.release_focus()
+		get_node("/root/Anathema").ui = false

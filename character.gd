@@ -15,12 +15,15 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity()*2 * delta
 
 	# Handle jump.
-	if Input.is_action_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if get_node("/root/Anathema").ui == false:
+		if Input.is_action_pressed("jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backwards")
+	var input_dir := Vector2.ZERO
+	if get_node("/root/Anathema").ui == false:
+		input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backwards")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -32,11 +35,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	get_target()
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * 0.003)
-		rotation_degrees.y = clamp(rotation_degrees.y, -180, 180)
-		camera.rotate_x(-event.relative.y * 0.003)
-		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -90, 90)
+	if get_node("/root/Anathema").ui == false:
+		if event is InputEventMouseMotion:
+			rotate_y(-event.relative.x * 0.003)
+			rotation_degrees.y = clamp(rotation_degrees.y, -180, 180)
+			camera.rotate_x(-event.relative.y * 0.003)
+			camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -90, 90)
 
 var target
 func get_target():
