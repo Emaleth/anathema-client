@@ -45,3 +45,10 @@ func client_to_server_token():
 @rpc("reliable")
 func server_to_player_token_result(token_verification):
 	get_tree().root.get_node("/root/Anathema").switch_scene()
+
+signal initial_player_data
+@rpc("reliable")
+func server_to_player_player_data(uuid, data):
+	while get_tree().root.get_node("/root/Anathema").current_scene != 0:
+		await get_tree().physics_frame
+	initial_player_data.emit(uuid, data)

@@ -1,14 +1,21 @@
 extends CharacterBody3D
 
-
+var uuid
+var data
 const SPEED = 10.0
 const JUMP_VELOCITY = 10
 @onready var camera := $SpringArm3D
+@onready var name_plate = $NamePlate
 
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Server.initial_player_data.connect(initial_player_data)
 
+func initial_player_data(_uuid, _data):
+	data = _data
+	uuid = _uuid
+	name_plate.set_actor_name(uuid)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

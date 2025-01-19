@@ -34,7 +34,7 @@ func ConnectToServer(_username, _password, _new_user):
 
 func _OnConnectionFailed():
 	print("Failed to connect to login server")
-	con_f.emit()
+	connection_failed.emit()
 
 
 func _OnConnectionSucceeded():
@@ -60,7 +60,7 @@ func client_to_gateway_create_account():
 	username = ""
 	password = ""
 
-signal con_f
+signal connection_failed
 @rpc("reliable")
 func gateway_to_client_login_result(result, token):
 	print(result)
@@ -69,7 +69,7 @@ func gateway_to_client_login_result(result, token):
 		Server.token = token
 		Server.ConnectToServer()
 	else:
-		con_f.emit()
+		connection_failed.emit()
 		gateway_api.connection_failed.disconnect(_OnConnectionFailed)
 		gateway_api.connected_to_server.disconnect(_OnConnectionSucceeded)
 		gateway_api.server_disconnected.disconnect(_OnDisconnection)
@@ -79,7 +79,7 @@ func gateway_to_client_create_account(result, message):
 	print(result, message)
 
 	if result == false:
-		con_f.emit()
+		connection_failed.emit()
 		#reenable buttons
 	if result == true:
 		get_tree().root.get_node("/root/Anathema").get_node("LoginRegister").load_login_scene()

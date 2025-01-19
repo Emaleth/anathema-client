@@ -13,11 +13,12 @@ albedo_texture = SubResource("ViewportTexture_v1f02")
 billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_70vf3"]
-size = Vector2(2, 0.5)
+size = Vector2(5, 0.5)
 
 [node name="NamePlate" type="MeshInstance3D"]
 material_override = SubResource("StandardMaterial3D_mefen")
 cast_shadow = 0
+gi_mode = 0
 mesh = SubResource("QuadMesh_70vf3")
 script = ExtResource("1_bv6ti")
 
