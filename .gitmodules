@@ -1,0 +1,3 @@
+[submodule "Anathema-World-Forge"]
+	path = Anathema-World-Forge
+	url = git@github.com:Emaleth/Anathema-World-Forge.git
