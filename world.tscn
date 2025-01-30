@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://x40o30p4e2wd"]
+[gd_scene load_steps=7 format=3 uid="uid://x40o30p4e2wd"]
 
-[ext_resource type="PackedScene" uid="uid://c7t15myvkx5ir" path="res://terrain.blend" id="1_tkxqd"]
 [ext_resource type="PackedScene" uid="uid://cltrig1jfofgf" path="res://character.tscn" id="2_f7w26"]
 [ext_resource type="PackedScene" uid="uid://b1y2g435qlcrh" path="res://ui.tscn" id="3_t2i3t"]
 [ext_resource type="PackedScene" uid="uid://cuoj7p5bkgmob" path="res://test_target.tscn" id="4_mvkov"]
@@ -19,8 +18,6 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="World" type="Node"]
-
-[node name="terrain" parent="." instance=ExtResource("1_tkxqd")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_158n2")
